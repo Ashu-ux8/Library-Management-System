@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>tr:hover {background-color:#b3cee5;}
+            h2{background-color:rgb(230,57,70); color:#FFF; border-radius:50px;padding:10px;text-align:center;}
+            tr.headT{border-bottom:1px solid dimgrey;background-color:rgb(69,123,157); color:#FFF;}
+            tr.bodyT{border-bottom: 1px solid lightgray;}            
+    </style>
 </head>
 <body>
 <ul class="nav nav-tabs">
@@ -15,7 +20,10 @@
     <a class="nav-link"  href="add_user.php">Add User</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="add_book.php">Book Record</a>
+    <a class="nav-link" href="add_book.php">Add Book</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="books_issued.php">Issued Books</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="../login/signin.php">Logout</a>
@@ -39,17 +47,17 @@
      }
  
      // SQL QUERY
-     $query = "SELECT * FROM `userdata`";
+     $query = "SELECT * FROM `user_details`";
  
      // FETCHING DATA FROM DATABASE
      $result = $conn->query($query);
      ?>
+     <br><h2>User Info</h2><br>
       <center>
         <table border ="1" cellspacing="0" cellpadding="10">
-        <tr>
+        <tr class="headT">
           <th>ID</th>
           <th>User Name</th>
-          <th>Email</th>
           <th>Email</th>
           <th>Type</th>
         </tr>
@@ -63,12 +71,12 @@
             {
       ?>
             <center>
-              <tr>
-                <td><?php echo $sn; ?> </td>
+              <tr class="bodyT">
+                <!-- <td><?php echo $sn; ?> </td> -->
                 <td><?php echo $data['id']; ?> </td>
-                <td><?php echo $data['name']; ?> </td>
+                <td><?php echo $data['user_name']; ?> </td>
                 <td><?php echo $data['email']; ?> </td>
-                <td><?php echo $data['type']; ?> </td>
+                <td><?php echo $data['user_type']; ?> </td>
               <tr>
             </center>
       <?php

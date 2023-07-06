@@ -7,7 +7,7 @@ $database = "library_managment";
 
 $con = mysqli_connect($server, $user, $password, $database);
 if ($con) {
-    echo '<script>alert("Database Connected")</script>';
+    // echo '<script>alert("Database Connected")</script>';
 } else {
     echo '<script>alert("Connection Error!!")</script>';
 }
@@ -25,7 +25,7 @@ if (isset($_POST['Uemail']) && isset($_POST['Upass'])) {
         echo '<script>alert("Cookie is not set!")</script>';
     }
 
-    $query = "SELECT email FROM userdata WHERE pass='$pass'";
+    $query = "SELECT email FROM user_details WHERE pass='$pass'";
     $res = mysqli_query($con, $query);
     echo mysqli_num_rows($res);
 

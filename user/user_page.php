@@ -16,7 +16,10 @@
     <a class="nav-link" href="av_books.php">Avaliable Books</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Book Record</a>
+    <a class="nav-link" href="request_book.php">Request Book</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="return.php">Return Book</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="../login/signin.php">Logout</a> 
@@ -64,21 +67,26 @@
             "User Type".$row['type']. "<br>"; -->
           
           <table border ="1" cellspacing="0" cellpadding="10" >
-          <tr>
+          <tr><?php session_start(); ?>
           <th>ID</th>
-          <td><?php echo $row['id']; ?></td>
+          <td><?php echo $row['id'];
+                    $_SESSION['user_id'] = $row['id'];
+                    ?></td>
           </tr>
           <tr>
           <th>Name</th>
-          <td><?php echo $row['name']; ?></td>
+          <td><?php echo $row['name'];
+                     $_SESSION['user_name'] = $row['name']; ?></td>
           </tr>
           <tr>
           <th>Email</th>
-          <td><?php echo $row['email']; ?></td>
+          <td><?php echo $row['email'];
+                     $_SESSION['user_email'] = $row['email']; ?></td>
           </tr>
           <tr>
           <th>Type</th>
-          <td><?php echo $row['type']; ?></td>
+          <td><?php echo $row['type'];
+                     $_SESSION['user_type'] = $row['type'];?></td>
           </tr>
 
       <?php
