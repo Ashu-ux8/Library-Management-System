@@ -68,7 +68,7 @@
  </center>
  <?php
  
-    $server = "localhost";
+    $server = "localhost:3308";
     $user = "root";
     $password = "";
     $database = "library_managment";

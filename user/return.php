@@ -27,7 +27,7 @@
     <a class="nav-link" aria-current="av_books.php" href="av_books.php">Avaliable Books</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Request Book</a>
+    <a class="nav-link" href="request_book.php">Request Book</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" aria-current="return.php" href="return.php">Return Book</a>
@@ -58,7 +58,7 @@
  </center>
  <?php
     
-   $server = "localhost";
+   $server = "localhost:3308";
    $user = "root";
    $password = "";
    $database = "library_managment";
@@ -66,7 +66,7 @@
    $con = mysqli_connect($server,$user,$password,$database);
    if($con)
    {
-         Echo "db connected";
+        //  Echo "db connected";
     }
     Else
     {
@@ -78,7 +78,8 @@
         $u_id = $_POST['user_id'];  
         
         $date = date("Y/m/d");
-        $sql = "INSERT INTO issue_book(return_date) VALUES ('$date') WHEN user_id=$u_id AND book_id=$b_id ";
+        // $sql = "INSERT INTO issue_book(return_date) VALUES ($date) WHERE user_id=$u_id AND book_id=$b_id ";
+        $sql = "UPDATE issue_book SET return_date = '$date' WHERE user_id=$u_id AND book_id=$b_id";
 
         if(mysqli_query($con, $sql))
         {

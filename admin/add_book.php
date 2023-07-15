@@ -58,7 +58,7 @@
               </div>
               <div class="field input-field" >
               <label name="branch" class="branch" style="">Branch</label><br>
-                <select id="text" style="color:dimgrey ;" >
+                <select id="text" name="branch" style="color:dimgrey ;">
                     <option value="CO">Computer Engineering</option>
                     <option value="EE">Electronic Engineering</option>
                     <option value="EL">Electrical Engineering</option>
@@ -75,7 +75,7 @@
 </center>
 <?php
 
-   $server = "localhost";
+  $server = "localhost:3308";
    $user = "root";
    $password = "";
    $database = "library_managment";
@@ -89,29 +89,28 @@
     {
       Echo"Database not connected";
     }
-     if (isset($_POST['book_name']) && isset($_POST['book_details']) && isset($_POST['book_author']) && isset($_POST['book_pub']) && isset($_POST['branch'])&& isset($_POST['book_price']) && isset($_POST['book_quantity'])) 
-     {
-         $name = $_POST['book_name'];
-         $det = $_POST['book_details'];
-         $auth = $_POST['book_author'];
-         $pub = $_POST['book_pub'];
-         $branch = $_POST['branch'];
-         $price = $_POST['book_price'];
-         $qunt = $_POST['book_quantity'];
-
-
-        $sql = "INSERT INTO book( bookname, bookdetail, bookaudor, bookpub,branch, bookprice, bookquantity) VALUES  ('$name','$det','$auth','$pub','$branch','$price','$qunt')";
-        if(mysqli_query($con, $sql))
-        {
-          echo '<script>alert("Book added!!")</script>';    
-        }
-        Else{
-        Echo "insertion unsuccessful";
-        }
+    if (isset($_POST['book_name']) && isset($_POST['book_details']) && isset($_POST['book_author']) && isset($_POST['book_pub']) && isset($_POST['branch']) && isset($_POST['book_price']) && isset($_POST['book_quantity'])) 
+    {
+      $name = $_POST['book_name'];
+      $det = $_POST['book_details'];
+      $auth = $_POST['book_author'];
+      $pub = $_POST['book_pub'];
+      $branch = $_POST['branch'];
+      $price = $_POST['book_price'];
+      $qunt = $_POST['book_quantity'];
+      $sql = "INSERT INTO book (bookname, bookdetail, bookaudor, bookpub, branch, bookprice, bookquantity) VALUES('$name','$det','$auth','$pub','$branch','$price','$qunt')";
+      if(mysqli_query($con, $sql))
+      {
+        echo "Book added!!";    
       }
       else{
-        // echo 'Not set';  
+      Echo "insertion unsuccessful";
       }
+    }
+    else{
+      echo 'Not set';  
+      echo $branch;
+    }
 ?>
 </body>
 </html>

@@ -61,7 +61,7 @@
 </center>
 <?php
 
-   $server = "localhost";
+   $server = "localhost:3308";
    $user = "root";
    $password = "";
    $database = "library_managment";
@@ -71,7 +71,7 @@
    {
         //  Echo "db connected";
     }
-    Else
+    else
     {
      Echo"Database not connected";
      }
@@ -87,7 +87,7 @@
       {
         echo '<script>alert("User Added!!")</script>';   
       }
-      Else{
+      else{
         echo 'Insertion uncessfull';    
       }
   }

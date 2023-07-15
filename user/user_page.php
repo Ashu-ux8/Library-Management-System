@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+      th{background-color: #b3cee5;}
+      tr:nth-child(even) {background-color: #f2f2f2;}
+      table{width:30%}
+    </style>
 </head>
 <body>
 
@@ -30,7 +35,7 @@
 
 <?php
   include '../login/user_auth.php';
-    $servername = "localhost";
+    $servername = "localhost:3308";
     $username = "root";
     $password = "";
     $databasename = "library_managment";
@@ -45,7 +50,7 @@
 
     $email = $_COOKIE["User_email"];
     // SQL QUERY
-    $query = "SELECT * FROM `userdata` WHERE email = '$email'";
+    $query = "SELECT * FROM user_details WHERE email = '$email'";
 
     ?>
     <br>
@@ -66,7 +71,7 @@
             "User Email: ". $row['email']."<br>".
             "User Type".$row['type']. "<br>"; -->
           
-          <table border ="1" cellspacing="0" cellpadding="10" >
+          <table border ="1" cellspacing="5" cellpadding="10" >
           <tr><?php session_start(); ?>
           <th>ID</th>
           <td><?php echo $row['id'];
@@ -75,8 +80,8 @@
           </tr>
           <tr>
           <th>Name</th>
-          <td><?php echo $row['name'];
-                     $_SESSION['user_name'] = $row['name']; ?></td>
+          <td><?php echo $row['user_name'];
+                     $_SESSION['user_name'] = $row['user_name']; ?></td>
           </tr>
           <tr>
           <th>Email</th>
@@ -85,8 +90,8 @@
           </tr>
           <tr>
           <th>Type</th>
-          <td><?php echo $row['type'];
-                     $_SESSION['user_type'] = $row['type'];?></td>
+          <td><?php echo $row['user_type'];
+                     $_SESSION['user_type'] = $row['user_type'];?></td>
           </tr>
 
       <?php

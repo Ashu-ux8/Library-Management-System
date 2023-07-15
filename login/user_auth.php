@@ -1,6 +1,6 @@
 <?php
 
-$server = "localhost";
+$server = "localhost:3308";
 $user = "root";
 $password = "";
 $database = "library_managment";
@@ -50,29 +50,4 @@ if (isset($_POST['Uemail']) && isset($_POST['Upass'])) {
     }
 }
     
-    
-    // if (mysqli_num_rows($res) == 1) {
-    //     $row = mysqli_fetch_assoc($res);
-    //     $st_em = $row['email'];
-
-    //     if ($st_em == $email) {
-    //         echo '<script>alert("User Authenticated")</script>';
-    //         echo "Test";
-    //         header("Location: ../user/user_page.php");
-    //         exit();
-    //     } else {
-    //         echo "Not authenticated";
-    //         header("Location: ../signin.php");
-    //         exit();
-    //     }
-    // } else {
-    //     echo "Number of rows > 1";
-    //     header("Location: ../signin.php");
-    //     exit();
-    // }
-    // } else {
-    //     echo "Entered credentials are not set.";
-    //     header("Location: ../signin.php");
-    //     exit();
-    // }
 ?>
